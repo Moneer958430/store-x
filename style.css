@@ -1,0 +1,41 @@
+:root {
+    box-sizing: border-box;
+}
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #424242;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body * + * {
+    margin-top: 1.5em;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex > * + * {
+    margin-top: 0;
+    margin-left: 1.5em;
+}
+
+.column-main {
+    flex: 2;
+    color: #eeeeee;
+    background-color: #151515;
+}
+
+.column-sidebar {
+    flex: 1;
+    background-color: #2e2e2e;
+}
