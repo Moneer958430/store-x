@@ -21,8 +21,8 @@
             <div class="column-sidebar">
                 <ul>
                     <li><a href="items.php">Items</a></li>
-                    <li><a href="#">Customers</a></li>
-                    <li><a href="#">Transactions</a></li>
+                    <li><a href="customers.php">Customers</a></li>
+                    <li><a href="transactions.php">Transactions</a></li>
                 </ul>
             </div>
 

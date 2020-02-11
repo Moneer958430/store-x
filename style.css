@@ -30,12 +30,32 @@ body * + * {
 }
 
 .column-main {
-    flex: 2;
+    flex: 3;
     color: #eeeeee;
     background-color: #151515;
+    padding: 1.5em;
 }
 
 .column-sidebar {
     flex: 1;
     background-color: #2e2e2e;
+}
+
+table, td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 1.5em;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: #eeeeee;
 }
