@@ -23,9 +23,9 @@ try {
     <?php
     while ($row = $result->fetch()) {
         echo "<tr>";
-        echo  "<td>" . $row["DateTime"] . "</td>";
-        echo  "<td>" . $row["Name"] . "</td>";
-        echo  "<td>" . $row["Total"] . "</td>";
+        echo  "<td>" . rinse($row["DateTime"]) . "</td>";
+        echo  "<td>" . rinse($row["Name"]) . "</td>";
+        echo  "<td>" . rinse($row["Total"]) . "</td>";
         echo  "<td><a href='transaction_details.php?ID=" . $row["ID"] . "'>Details</a></td>";
         echo "</tr>";
     }

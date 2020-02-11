@@ -17,8 +17,8 @@ try {
     <?php
     while ($row = $result->fetch()) {
         echo "<tr>";
-        echo  "<td>" . $row["Name"] . "</td>";
-        echo  "<td>" . $row["Price"] . "</td>";
+        echo  "<td>" . rinse($row["Name"]) . "</td>";
+        echo  "<td>" . rinse($row["Price"]) . "</td>";
         echo  "<td><a href='item.php?ID=" . $row["ID"] . "'>Edit/Delete</a></td>";
         echo "</tr>";
     }

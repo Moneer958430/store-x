@@ -19,9 +19,9 @@ try {
     <?php
     while ($row = $result->fetch()) {
         echo "<tr>";
-        echo  "<td>" . $row["Name"] . "</td>" ;
-        echo  "<td>" . $row["Email"] . "</td>" ;
-        echo  "<td>" . $row["Phone"] . "</td>" ;
+        echo  "<td>" . rinse($row["Name"]) . "</td>" ;
+        echo  "<td>" . rinse($row["Email"]) . "</td>" ;
+        echo  "<td>" . rinse($row["Phone"]) . "</td>" ;
         echo "</tr>";
     }
     ?>

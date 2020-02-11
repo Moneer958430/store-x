@@ -1,12 +1,16 @@
 <?php include_once "header.php"; ?>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] === "GET") {
-    if (isset($_GET["ID"])) {
-        $id = $_GET["ID"];
-    }
-} else if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (isset($_POST["name"]) && isset($_POST["price"])) {
+if (isset($_GET["ID"])) {
+    $id = $_GET["ID"];
+    $sql = "SELECT * FROM item WHERE ID = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":id", $id);
+    $stmt->execute();
+    $result = $stmt->fetch();
+}
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST["name"]) && isset($_POST["price"]) && isset($_POST["ID"])) {
         $sql = "UPDATE item SET name = :name, price = :price WHERE ID = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(":id", $_POST["ID"]);
@@ -24,22 +28,32 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
         header("Location: items.php");
     } else if (isset($_POST["ID"])) {
-        $sql = "DELETE FROM item WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(":id", $_POST["ID"]);
-        $stmt->execute();
+        try {
+            $sql = "DELETE FROM item WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $_POST["ID"]);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            if ($e->getCode() === "23000") {
+                echo "<script>alert('You cannt delete this item because it is listed in existing transactions.');</script>";
+                $prevent = true;
+            }
+        }
 
-        header("Location: items.php");
+
+        if ($prevent !== true) {
+            header("Location: items.php");
+        }
     }
 }
 ?>
 
 <form action="" method="post">
     <label for="name">Name</label>
-    <input type="text" name="name" required />
+    <input type="text" name="name" value="<?php echo isset($id) === true ? $result["Name"] : '' ?>" required />
     <br />
     <lable for="price">Price</lable>
-    <input type="text" name="price" required />
+    <input type="number" name="price" value="<?php echo isset($id) === true ? $result["Price"] : '' ?>" required />
     <br />
     <?php if (isset($id)) : ?>
         <input type="hidden" name="ID" value="<?php echo $id ?>" />
