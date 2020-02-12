@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="spacer"></div>
     <lable for="price">Price</lable>
     <br/>
-    <input type="number" name="price" value="<?php echo isset($id) === true ? $result["Price"] : '' ?>" required />
+    <input type="number" step="0.001" name="price" value="<?php echo isset($id) === true ? $result["Price"] : '' ?>" required />
     <br />
     <?php if (isset($id)) : ?>
         <input type="hidden" name="ID" value="<?php echo $id ?>" />
