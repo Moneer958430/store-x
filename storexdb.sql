@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2020 at 08:02 PM
+-- Generation Time: Feb 12, 2020 at 05:26 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.27
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `storexdb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth`
+--
+
+CREATE TABLE `auth` (
+  `ID` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `auth`
+--
+
+INSERT INTO `auth` (`ID`, `username`, `password`) VALUES
+(1, 'moneer', '6da0c8ca7a92cbd27cb93dbf4c5f1b62470ebf3c'),
+(2, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997');
 
 -- --------------------------------------------------------
 
@@ -69,7 +89,8 @@ INSERT INTO `item` (`ID`, `Name`, `Price`) VALUES
 (4065, 'Juice', 35),
 (4070, 'Sugar', 50),
 (4075, 'Bread', 3),
-(4080, 'Cereal', 22);
+(4080, 'Cereal', 88),
+(4087, '\"<script>alert(\'OK\');</script>', 10);
 
 -- --------------------------------------------------------
 
@@ -143,6 +164,12 @@ INSERT INTO `transaction_entry` (`ID`, `TransactionID`, `ItemID`, `Quantity`) VA
 --
 
 --
+-- Indexes for table `auth`
+--
+ALTER TABLE `auth`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
@@ -174,6 +201,12 @@ ALTER TABLE `transaction_entry`
 --
 
 --
+-- AUTO_INCREMENT for table `auth`
+--
+ALTER TABLE `auth`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
@@ -183,7 +216,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4081;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4088;
 
 --
 -- AUTO_INCREMENT for table `transaction`

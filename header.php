@@ -27,7 +27,10 @@
 
         <header>
             <h2 class="title">Store X Dashboard</h2>
-            <a href="?logout=true" class="logout">Log out</a>
+            <p>Welcome <?php echo $_SESSION["user"] ?></p>
+            <div class="logout-container">
+                <a href="?logout=true" class="logout">Log out</a>
+            </div>
         </header>
 
         <main class="flex">

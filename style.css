@@ -35,12 +35,64 @@ a {
     text-decoration: none;
 }
 
-.logout {
+input[type=text], input[type=number], input[type=password] {
+    width: 50%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+input[type=submit] {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-right: 0.75em;
+    padding-left: 0.75em;
+
+}
+
+.spacer {
+    padding-top: 0.25em;
+}
+
+.delete-container {
+    padding-left: 100px;
+    margin-top: -51px;
+}
+
+.create {
+    border-style: solid;
+    border-color: #eeeeee;
+    border-width: 1px;
+    padding: 0.5em;
+}
+
+.create:hover {
+    background-color: #eeeeee;
+}
+
+.logout-container {
+    padding-left: 1.5em;
     padding-right: 1.5em;
+}
+
+.logout {
+    padding: 0.5em;
+    border-style: solid;
+    border-color: #eeeeee;
+    border-width: 1px;
+}
+
+.logout:hover {
+    background-color: #eeeeee;
 }
 
 .menu-item {
     color: #000000;
+    padding: 0.5em;
+}
+
+.menu-item:hover {
+    background-color: #eeeeee;
+    padding-left: 1em;
 }
 
 .title {
@@ -53,7 +105,7 @@ a {
 
 .login-container {
     padding-top: 8em;
-    max-width: 260px;
+    max-width: 500px;
     margin: 0 auto;
 }
 

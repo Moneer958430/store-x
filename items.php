@@ -7,7 +7,7 @@ try {
     echo $e->getMessage();
 }
 ?>
-<a href="item.php">Create</a>
+<a href="item.php" class="create">Create</a>
 <table>
     <tr>
         <th>Name</th>

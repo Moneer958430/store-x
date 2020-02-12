@@ -50,9 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <form action="" method="post">
     <label for="name">Name</label>
+    <br/>
     <input type="text" name="name" value="<?php echo isset($id) === true ? $result["Name"] : '' ?>" required />
     <br />
+    <div class="spacer"></div>
     <lable for="price">Price</lable>
+    <br/>
     <input type="number" name="price" value="<?php echo isset($id) === true ? $result["Price"] : '' ?>" required />
     <br />
     <?php if (isset($id)) : ?>
@@ -64,7 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <?php if (isset($id)) : ?>
     <form action="" method="post">
         <input type="hidden" name="ID" value="<?php echo $id ?>" />
-        <input type="submit" name="delete" value="Delete" class="delete" />
+        <div class="delete-container">
+            <input type="submit" name="delete" value="Delete" class="delete" />
+        </div>
     </form>
 <?php endif; ?>
 
